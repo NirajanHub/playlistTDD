@@ -1,0 +1,108 @@
+[debug] [2024-09-08T23:46:03.854Z] ----------------------------------------------------------------------
+[debug] [2024-09-08T23:46:03.857Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start --only database
+[debug] [2024-09-08T23:46:03.857Z] CLI Version:   13.16.0
+[debug] [2024-09-08T23:46:03.858Z] Platform:      darwin
+[debug] [2024-09-08T23:46:03.858Z] Node Version:  v18.12.1
+[debug] [2024-09-08T23:46:03.860Z] Time:          Sun Sep 08 2024 16:46:03 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-09-08T23:46:03.861Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-08T23:46:04.034Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-08T23:46:04.035Z] > authorizing via signed-in user (nirajanc19@gmail.com)
+[debug] [2024-09-08T23:46:04.135Z] openjdk version "20.0.1" 2023-04-18
+OpenJDK Runtime Environment (build 20.0.1+9-29)
+OpenJDK 64-Bit Server VM (build 20.0.1+9-29, mixed mode, sharing)
+
+[debug] [2024-09-08T23:46:04.137Z] Parsed Java major version: 20
+[info] i  emulators: Starting emulators: database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: database"}}
+[debug] [2024-09-08T23:46:05.485Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-09-08T23:46:05.486Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-09-08T23:46:05.486Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] ⚠  emulators: It seems that you are running multiple instances of the emulator suite for project playlist-befd8. This may result in unexpected behavior. 
+[debug] [2024-09-08T23:46:05.499Z] [hub] writing locator at /var/folders/lf/2ydtvctj4ysg1mc_czpkdzp00000gn/T/hub-playlist-befd8.json
+[debug] [2024-09-08T23:46:05.505Z] > refreshing access token with scopes: []
+[debug] [2024-09-08T23:46:05.507Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-09-08T23:46:05.508Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-08T23:46:05.686Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-09-08T23:46:05.686Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-09-08T23:46:05.702Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/playlist-befd8 [none]
+[debug] [2024-09-08T23:46:06.089Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/playlist-befd8 200
+[debug] [2024-09-08T23:46:06.089Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/playlist-befd8 {"projectId":"playlist-befd8","projectNumber":"106086979536","displayName":"Playlist","name":"projects/playlist-befd8","resources":{"hostingSite":"playlist-befd8","realtimeDatabaseInstance":"playlist-befd8-default-rtdb"},"state":"ACTIVE","etag":"1_df232d34-90aa-4bfd-91e6-2912304f197d"}
+[debug] [2024-09-08T23:46:06.090Z] database rules config:  []
+[warn] ⚠  database: Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"database"},"message":"Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2024-09-08T23:46:06.093Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2024-09-08T23:46:06.093Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-09-08T23:46:06.093Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2024-09-08T23:46:06.094Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/nirajanchapagain/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/nirajanchapagain/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2024-09-08T23:46:08.269Z] 16:46:08.265 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"16:46:08.265 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2024-09-08T23:46:08.595Z] 16:46:08.594 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"16:46:08.594 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
+[debug] [2024-09-08T23:46:08.744Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-09-08T23:46:08.745Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-09-08T23:46:08.745Z] Starting Emulator UI with command {"binary":"node","args":["/Users/nirajanchapagain/.cache/firebase/emulators/ui-v1.13.0/server/server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/nirajanchapagain/.cache/firebase/emulators/ui-v1.13.0/server/server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-09-08T23:46:08.975Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-09-08T23:46:08.975Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┬────────────────────────────────┐
+│ Emulator │ Host:Port      │ View in Emulator UI            │
+├──────────┼────────────────┼────────────────────────────────┤
+│ Database │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
+└──────────┴────────────────┴────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-09-09T00:00:43.696Z] 17:00:43.695 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - fake-server successfully activated FBKV (SurveyIdle(0)) wait: 676ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"17:00:43.695 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - fake-server successfully activated FBKV (SurveyIdle(0)) wait: 676ms, init: 0ms\n"}}
+[debug] [2024-09-09T00:00:52.804Z] 17:00:52.804 [FirebaseWorkerPool-1-4] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace playlist-befd8, but the emulator is configured for fake-server. To 
+opt-out of single project mode add/set the singleProjectMode: false property in 
+the firebase.json emulators config. 
+ {"metadata":{"emulator":{"name":"database"},"message":"17:00:52.804 [FirebaseWorkerPool-1-4] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested \nnamespace playlist-befd8, but the emulator is configured for fake-server. To \nopt-out of single project mode add/set the singleProjectMode: false property in \nthe firebase.json emulators config. \n"}}
+[debug] [2024-09-09T00:00:52.814Z] 17:00:52.813 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - playlist-befd8 successfully activated FBKV (SurveyIdle(0)) wait: 4ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"17:00:52.813 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - playlist-befd8 successfully activated FBKV (SurveyIdle(0)) wait: 4ms, init: 0ms\n"}}
+[debug] [2024-09-09T00:56:41.239Z] ----------------------------------------------------------------------
+[debug] [2024-09-09T00:56:41.242Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start --debug
+[debug] [2024-09-09T00:56:41.242Z] CLI Version:   13.16.0
+[debug] [2024-09-09T00:56:41.243Z] Platform:      darwin
+[debug] [2024-09-09T00:56:41.243Z] Node Version:  v18.12.1
+[debug] [2024-09-09T00:56:41.244Z] Time:          Sun Sep 08 2024 17:56:41 GMT-0700 (Pacific Daylight Time)
+[debug] [2024-09-09T00:56:41.245Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-09-09T00:56:41.408Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-09-09T00:56:41.409Z] > authorizing via signed-in user (nirajanc19@gmail.com)
+[debug] [2024-09-09T00:56:41.542Z] openjdk version "20.0.1" 2023-04-18
+
+[debug] [2024-09-09T00:56:41.543Z] OpenJDK Runtime Environment (build 20.0.1+9-29)
+OpenJDK 64-Bit Server VM (build 20.0.1+9-29, mixed mode, sharing)
+
+[debug] [2024-09-09T00:56:41.548Z] Parsed Java major version: 20
+[info] i  emulators: Starting emulators: database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: database"}}
+[warn] ⚠  database: Port 9000 is not open on localhost (127.0.0.1,::1), could not start Database Emulator. {"metadata":{"emulator":{"name":"database"},"message":"Port 9000 is not open on localhost (127.0.0.1,::1), could not start Database Emulator."}}
+[warn] ⚠  database: To select a different host/port, specify that host/port in a firebase.json config file:
+      {
+        // ...
+        "emulators": {
+          "database": {
+            "host": "HOST",
+            "port": "PORT"
+          }
+        }
+      } {"metadata":{"emulator":{"name":"database"},"message":"To select a different host/port, specify that host/port in a firebase.json config file:\n      {\n        // ...\n        \"emulators\": {\n          \"database\": {\n            \"host\": \"\u001b[33mHOST\u001b[39m\",\n            \"port\": \"\u001b[33mPORT\u001b[39m\"\n          }\n        }\n      }"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[warn] ⚠  hub: emulator hub unable to start on port 4400, starting on 4401 instead. {"metadata":{"emulator":{"name":"hub"},"message":"emulator hub unable to start on port 4400, starting on 4401 instead."}}
+[warn] ⚠  ui: Emulator UI unable to start on port 4000, starting on 4001 instead. {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI unable to start on port 4000, starting on 4001 instead."}}
+[warn] ⚠  logging: Logging Emulator unable to start on port 4500, starting on 4501 instead. {"metadata":{"emulator":{"name":"logging"},"message":"Logging Emulator unable to start on port 4500, starting on 4501 instead."}}
+[debug] [2024-09-09T00:56:43.415Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[error] 
+[error] Error: Could not start Database Emulator, port taken.

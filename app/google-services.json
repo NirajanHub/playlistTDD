@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "106086979536",
+    "project_id": "playlist-befd8",
+    "storage_bucket": "playlist-befd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106086979536:android:8eff86eba0582e04a4cbd5",
+        "android_client_info": {
+          "package_name": "com.ncodes.playlists"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3bL8_U6hLckN1by1fK0f_UW956e3hWLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
