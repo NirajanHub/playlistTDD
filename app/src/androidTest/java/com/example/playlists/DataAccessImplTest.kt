@@ -2,15 +2,13 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.playlists.MainCoroutineRule
-import com.example.playlists.data.DataAccessImpl
-import com.example.playlists.domain.DataAccess
+import com.example.playlists.data.RemoteDatabaseImpl
+import com.example.playlists.domain.RemoteDatabase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.test.runTest
-import okhttp3.internal.wait
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
@@ -27,7 +25,7 @@ class FirebaseDatabaseInstrumentedTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     private lateinit var firebaseDatabase: FirebaseDatabase
-    private lateinit var dataAccess: DataAccess
+    private lateinit var dataAccess: RemoteDatabase
     private lateinit var firebaseReference: DatabaseReference
 
 
@@ -48,7 +46,7 @@ class FirebaseDatabaseInstrumentedTest {
         firebaseDatabase.setPersistenceEnabled(false)
         // Disable offline persistence for tests
         firebaseReference = firebaseDatabase.getReference("playlist")
-        dataAccess = DataAccessImpl(firebaseReference = firebaseReference)
+        dataAccess = RemoteDatabaseImpl(firebaseReference = firebaseReference)
     }
 
     @Test

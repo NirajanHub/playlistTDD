@@ -1,6 +1,6 @@
 package com.example.playlists.data
 
-import com.example.playlists.domain.DataAccess
+import com.example.playlists.domain.RemoteDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -17,9 +17,9 @@ import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
 
-class DataAccessTest {
+class RemoteDatabaseTest {
 
-    private lateinit var dataAccess: DataAccess
+    private lateinit var remoteDatabaseAccess: RemoteDatabase
 
     private lateinit var firebaseDatabase: FirebaseDatabase
 
@@ -41,7 +41,7 @@ class DataAccessTest {
         MockitoAnnotations.openMocks(this)
         firebaseDatabase = Mockito.mock(FirebaseDatabase::class.java)
         `when`(firebaseDatabase.getReference("fake-server")).thenReturn(firebaseReference)
-        dataAccess = DataAccessImpl(firebaseReference)
+        remoteDatabaseAccess = RemoteDatabaseImpl(firebaseReference)
     }
 
     @Test
@@ -60,7 +60,7 @@ class DataAccessTest {
         val argumentCaptor = ArgumentCaptor.forClass(ValueEventListener::class.java)
 
         //Assert
-        dataAccess.getDataFromFirebaseRealtime { result ->
+        remoteDatabaseAccess.getDataFromFirebaseRealtime { result ->
             assert(result == song)
         }
 
@@ -76,7 +76,7 @@ class DataAccessTest {
 
         val argumentCaptor = ArgumentCaptor.forClass(ValueEventListener::class.java)
 
-        dataAccess.getDataFromFirebaseRealtime { result ->
+        remoteDatabaseAccess.getDataFromFirebaseRealtime { result ->
             assert(result == null)
         }
 
@@ -96,7 +96,7 @@ class DataAccessTest {
 
 
         //Act
-        dataAccess.writeDataToFirebaseRealtime(song)
+        remoteDatabaseAccess.writeDataToFirebaseRealtime(song)
 
         //Assert
         val argumentCaptor = ArgumentCaptor.forClass(Song::class.java)

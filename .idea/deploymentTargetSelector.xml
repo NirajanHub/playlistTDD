@@ -13,10 +13,10 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="FirebaseDatabaseInstrumentedTest">
+      <SelectionState runConfigName="Tests in 'com.example.playlists'">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Tests in 'com.example.playlists'">
+      <SelectionState runConfigName="delete_song_assertsDeleted()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -2,7 +2,7 @@ package com.example.playlists.data
 
 import com.example.playlists.data.repository.RepositoryImpl
 import com.example.playlists.domain.ApiInterface
-import com.example.playlists.domain.DataAccess
+import com.example.playlists.domain.RemoteDatabase
 import com.example.playlists.util.Result
 import com.google.firebase.database.DatabaseReference
 import kotlinx.coroutines.test.runTest
@@ -18,7 +18,6 @@ import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
-import org.mockito.stubbing.Answer
 
 
 class RepositoryTest {
@@ -36,7 +35,7 @@ class RepositoryTest {
     private lateinit var firebaseReference: DatabaseReference
 
     @Mock
-    private lateinit var dataAccess: DataAccess
+    private lateinit var dataAccess: RemoteDatabase
 
     @Before
     fun setUp() {

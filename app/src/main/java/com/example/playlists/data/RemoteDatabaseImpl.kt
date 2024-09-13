@@ -1,13 +1,13 @@
 package com.example.playlists.data
 
-import com.example.playlists.domain.DataAccess
+import com.example.playlists.domain.RemoteDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import javax.inject.Inject
 
-class DataAccessImpl @Inject constructor(private val firebaseReference: DatabaseReference) : DataAccess {
+class RemoteDatabaseImpl @Inject constructor(private val firebaseReference: DatabaseReference) : RemoteDatabase {
 
     override fun getDataFromFirebaseRealtime(callback: (Song?) -> Unit) {
         firebaseReference.addListenerForSingleValueEvent(object : ValueEventListener {

@@ -4,18 +4,16 @@ import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.example.playlists.data.PlayListDao
 import com.example.playlists.data.PlayListDatabase
 import com.example.playlists.data.repository.RepositoryImpl
 import com.example.playlists.domain.ApiInterface
-import com.example.playlists.domain.DataAccess
+import com.example.playlists.domain.RemoteDatabase
 import com.example.playlists.domain.Repository
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -62,14 +60,14 @@ object Module {
 
     @Provides
     @Singleton
-    fun provideDataAccess(firebaseDatabase: FirebaseDatabase): DataAccess{
-        return com.example.playlists.data.DataAccessImpl(firebaseDatabase.reference)
+    fun provideDataAccess(firebaseDatabase: FirebaseDatabase): RemoteDatabase{
+        return com.example.playlists.data.RemoteDatabaseImpl(firebaseDatabase.reference)
     }
 
 
     @Provides
     @Singleton
-    fun provideRepository(apiInterface: ApiInterface,db:PlayListDatabase,dataAccess: DataAccess): Repository{
+    fun provideRepository(apiInterface: ApiInterface,db:PlayListDatabase,dataAccess: RemoteDatabase): Repository{
         return RepositoryImpl(apiInterface,db.dao(),dataAccess)
     }
 }
