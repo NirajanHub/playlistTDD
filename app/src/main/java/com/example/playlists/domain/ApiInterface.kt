@@ -5,8 +5,8 @@ import com.example.playlists.data.SongDTO
 import retrofit2.http.GET
 
 interface ApiInterface {
-
-    @GET("/api/songs")
-    suspend fun getAllSong(): SongDTO?
+//
+//    @GET("/api/songs")
+//    suspend fun getAllSong(): SongDTO?
 
 }

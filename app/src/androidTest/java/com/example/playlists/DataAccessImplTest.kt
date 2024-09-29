@@ -2,7 +2,7 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.playlists.MainCoroutineRule
-import com.example.playlists.data.RemoteDatabaseImpl
+import com.example.playlists.data.remote.RemoteDatabaseImpl
 import com.example.playlists.domain.RemoteDatabase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
@@ -74,7 +74,7 @@ class FirebaseDatabaseInstrumentedTest {
     fun testFirebaseDatabase_writeAndRead_failure() =
         mainCoroutineRule.testScope.runTest {
             // Reference to your database location
-            val ref = firebaseDatabase.getReference("playlist")
+            val ref = firebaseDatabase.reference
 
             // Write data to the database using coroutines
             //Log.d("Test", "Writing data to Firebase")

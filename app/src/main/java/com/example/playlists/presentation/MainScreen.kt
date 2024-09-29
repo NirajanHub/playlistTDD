@@ -11,5 +11,7 @@ fun MainScreen(innerPadding: PaddingValues) {
     SongList(
         modifier = Modifier.padding(innerPadding),
         PlayListState(),
+
     )
+
 }

@@ -7,10 +7,12 @@ import com.example.playlists.data.SongDTO
 import com.example.playlists.domain.Repository
 import com.example.playlists.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -19,6 +21,11 @@ class PlayListViewModel @Inject constructor(private val repository: Repository) 
 
     private val _state = MutableStateFlow(PlayListState())
     val state = _state.asStateFlow()
+
+    init {
+        callRepository()
+    }
+
     fun fetchSongs() {
         viewModelScope.launch {
             _state.update { currentState -> currentState.copy(isListLoading = true) }
@@ -29,14 +36,34 @@ class PlayListViewModel @Inject constructor(private val repository: Repository) 
                         isError = songs.message.toString()
                     )
                 }
+
                 is Result.Loading -> _state.update { currentState -> currentState.copy(isListLoading = true) }
                 is Result.Success -> _state.update { currentState ->
-                    currentState.copy(isListLoading = false, isSuccess = songs.data as Song)
+                    currentState.copy(isListLoading = false, isSuccess = songs.data as Song?)
                 }
             }
             _state.update { currentState -> currentState.copy(isListLoading = false) }
         }
 
+    }
+
+    fun fetchFirebaseData(){
+
+    }
+
+    private fun callRepository() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                repository.writeToFirebaseRealtimeDatabase(
+                    Song(
+                        id = 1,
+                        icon = "icon",
+                        title = "name",
+                        description = "url"
+                    )
+                )
+            }
+        }
     }
 }
 

@@ -135,8 +135,9 @@ dependencies {
     testImplementation(libs.square.mockserver)
 
     //mokito-core
-    testImplementation(libs.mokito.core)
-    testImplementation(libs.mokito.inline)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
 
     //turbine
     testImplementation(libs.turbine)

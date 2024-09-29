@@ -36,41 +36,41 @@ class RemoteServerTest {
         mockServer.shutdown()
     }
 
-    @Test
-    fun `test success api call`() {
-        //Act
-        runBlocking {
-            val mockResponse = MockResponse()
-                .setResponseCode(200)
-                .setBody("""{"id": 1,"icon":"icon", "title": "Test title", "description": "Test Description"}""")
-            mockServer.enqueue(mockResponse)
+//    @Test
+//    fun `test success api call`() {
+//        //Act
+//        runBlocking {
+//            val mockResponse = MockResponse()
+//                .setResponseCode(200)
+//                .setBody("""{"id": 1,"icon":"icon", "title": "Test title", "description": "Test Description"}""")
+//            mockServer.enqueue(mockResponse)
+//
+//            //
+//            val response = api.getAllSong()
+//
+//            //Assert
+//            assertEquals(1, response?.id)
+//            assertEquals("Test title", response?.title)
+//        }
+//
+//    }
 
-            //
-            val response = api.getAllSong()
-
-            //Assert
-            assertEquals(1, response?.id)
-            assertEquals("Test title", response?.title)
-        }
-
-    }
-
-    @Test
-    fun `test failure api call`() {
-        //Act
-        runBlocking {
-            val mockResponse = MockResponse()
-                .setResponseCode(400)
-            mockServer.enqueue(mockResponse)
-
-            //
-            try {
-                val response = api.getAllSong()
-                assert(false)
-            }catch (e: HttpException) {
-                assert(true)
-            }
-        }
-
-    }
+//    @Test
+//    fun `test failure api call`() {
+//        //Act
+//        runBlocking {
+//            val mockResponse = MockResponse()
+//                .setResponseCode(400)
+//            mockServer.enqueue(mockResponse)
+//
+//            //
+//            try {
+//                val response = api.getAllSong()
+//                assert(false)
+//            }catch (e: HttpException) {
+//                assert(true)
+//            }
+//        }
+//
+//    }
 }

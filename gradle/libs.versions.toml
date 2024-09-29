@@ -50,8 +50,9 @@ androidx-room-testing = { group = "androidx.room", name ="room-testing", version
 square-retrofit = {group ="com.squareup.retrofit2",name ="retrofit",version.ref ="retrofit"}
 square-retrofit-converter = {group ="com.squareup.retrofit2",name = "converter-gson",version.ref="retrofit"}
 square-mockserver = {group = "com.squareup.okhttp3",name = "mockwebserver", version.ref ="mockserver"}
-mokito-core = {group = "org.mockito",name ="mockito-core",version.ref = "mokito-core"}
-mokito-inline = {group = "org.mockito",name ="mockito-inline",version.ref = "mokito-core"}
+mockito-core = {group = "org.mockito",name ="mockito-core",version.ref = "mokito-core"}
+mockito-inline = {group = "org.mockito",name ="mockito-inline",version.ref = "mokito-core"}
+mockito-kotlin = {group = "org.mockito.kotlin",name = "mockito-kotlin" ,version.ref ="mokito-core" }
 gson = {group ="com.google.code.gson",name ="gson",version.ref = "gson"}
 kotlin-coroutine-rule = {group =  "org.jetbrains.kotlinx" ,name = "kotlinx-coroutines-test" , version.ref="coroutine-test"}
 turbine = {group = "app.cash.turbine",name = "turbine",version.ref = "turbine"}

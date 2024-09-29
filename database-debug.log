@@ -1,8 +1,14 @@
-16:46:08.265 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-16:46:08.594 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
-17:00:43.695 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - fake-server successfully activated FBKV (SurveyIdle(0)) wait: 676ms, init: 0ms
-17:00:52.804 [FirebaseWorkerPool-1-4] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
-namespace playlist-befd8, but the emulator is configured for fake-server. To 
+10:32:45.580 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+10:32:45.845 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+10:32:46.811 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - playlist-befd8-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 203ms, init: 0ms
+10:32:46.900 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace playlist-befd8-default-rtdb status Active to Active
+10:32:57.750 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace playlist-befd8, but the emulator is configured for playlist-befd8-default-rtdb. To 
 opt-out of single project mode add/set the singleProjectMode: false property in 
 the firebase.json emulators config. 
-17:00:52.813 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - playlist-befd8 successfully activated FBKV (SurveyIdle(0)) wait: 4ms, init: 0ms
+10:32:57.752 [FirebaseWorkerPool-1-4] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace fake-server, but the emulator is configured for playlist-befd8-default-rtdb. To 
+opt-out of single project mode add/set the singleProjectMode: false property in 
+the firebase.json emulators config. 
+10:32:57.777 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - fake-server successfully activated FBKV (SurveyIdle(0)) wait: 5ms, init: 0ms
+10:32:57.785 [NamespaceSystem-akka.actor.default-dispatcher-8] INFO com.firebase.core.namespace.NamespaceActor - playlist-befd8 successfully activated FBKV (SurveyIdle(0)) wait: 13ms, init: 0ms

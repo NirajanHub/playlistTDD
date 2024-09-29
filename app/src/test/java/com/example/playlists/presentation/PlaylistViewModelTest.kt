@@ -5,6 +5,8 @@ import com.example.playlists.MainCoroutineRule
 import com.example.playlists.data.FakeRepository
 import com.example.playlists.data.Song
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -29,12 +31,12 @@ class PlaylistViewModelTest {
         repository = FakeRepository()
         viewModel = PlayListViewModel(repository)
     }
+    val song = Song(id = 1, icon = "icon", title = "title", description = "description")
 
     @Test
     fun `test fetchSongs function with success result`() = mainCoroutineRule.testScope.runTest {
 
         //Given
-        val song = Song(id = 1, icon = "icon", title = "title", description = "description")
 
         //When
         viewModel.fetchSongs()
@@ -49,7 +51,6 @@ class PlaylistViewModelTest {
     @Test
     fun `test the loading functionality of view model`() = mainCoroutineRule.testScope.runTest {
 
-        val song = Song(id = 1, icon = "icon", title = "title", description = "description")
         viewModel.state.test {
             assertFalse(awaitItem().isListLoading)
 
@@ -76,6 +77,16 @@ class PlaylistViewModelTest {
         //Result
 
         assertEquals(expected,viewModel.state.value.isError)
+
+    }
+
+    @Test
+    fun `fetch firebase_data_changes success`(){
+        //When
+
+        val result = repository.getDataFromFirebaseDatabase()
+
+        //Result
 
     }
 }
