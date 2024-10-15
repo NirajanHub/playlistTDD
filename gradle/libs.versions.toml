@@ -27,6 +27,10 @@ hilt = "2.51"
 coreKtxVersion = "1.6.1"
 test-core ="1.6.1"
 coroutine-play = "1.6.0"
+composeNavigation = "2.8.1"
+serialization = "1.6.3"
+hilt-navigation = "1.2.0"
+exo-plauer = "1.4.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -66,6 +70,12 @@ roboelectric = {group = "org.robolectric",name ="robolectric",version.ref = "rob
 core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
 androidx-test-core =  {group = 'androidx.test',name ="core",version.ref="test-core"}
 coroutine-play ={group = 'org.jetbrains.kotlinx',name = "kotlinx-coroutines-play-services",version.ref = "coroutine-play"}
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization"}
+hilt-navigation = {group= "androidx.hilt" ,name = "hilt-navigation-compose" , version.ref = "hilt-navigation"}
+exo-player = {group = "androidx.media3",name ="media3-exoplayer",version.ref = "exo-plauer"}
+exo-player-dash = {group = "androidx.media3",name ="media3-dash",version.ref = "exo-plauer"}
+exo-player-ui = {group = "androidx.media3",name ="media3-ui",version.ref = "exo-plauer"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

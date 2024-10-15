@@ -3,6 +3,9 @@ package com.example.playlists.data
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import com.example.playlists.mainplayer.data.PlayListDao
+import com.example.playlists.mainplayer.data.PlayListDatabase
+import com.example.playlists.mainplayer.data.Song
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before

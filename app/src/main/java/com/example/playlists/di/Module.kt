@@ -3,11 +3,11 @@ package com.example.playlists.di
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
-import com.example.playlists.data.PlayListDatabase
-import com.example.playlists.data.remote.RemoteDatabaseImpl
-import com.example.playlists.data.repository.RepositoryImpl
-import com.example.playlists.domain.RemoteDatabase
-import com.example.playlists.domain.Repository
+import com.example.playlists.mainplayer.data.PlayListDatabase
+import com.example.playlists.mainplayer.data.remote.RemoteDatabaseImpl
+import com.example.playlists.mainplayer.data.repository.RepositoryImpl
+import com.example.playlists.mainplayer.domain.RemoteDatabase
+import com.example.playlists.mainplayer.domain.Repository
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
@@ -46,7 +46,7 @@ object Module {
 
     @Provides
     @Singleton
-    fun provideDataBase(app:Application): PlayListDatabase{
+    fun provideDataBase(app:Application): PlayListDatabase {
         return Room.databaseBuilder(
             app,
             PlayListDatabase::class.java,
@@ -58,14 +58,14 @@ object Module {
     //Provides Remote Database for provideRepository function.
     @Provides
     @Singleton
-    fun provideDataAccess(firebaseDatabase: FirebaseDatabase): RemoteDatabase{
+    fun provideDataAccess(firebaseDatabase: FirebaseDatabase): RemoteDatabase {
         return RemoteDatabaseImpl(firebaseDatabase.getReference())
     }
 
 
     @Provides
     @Singleton
-    fun provideRepository(db:PlayListDatabase,dataAccess: RemoteDatabase): Repository{
+    fun provideRepository(db: PlayListDatabase, dataAccess: RemoteDatabase): Repository {
         return RepositoryImpl(db.dao(),dataAccess)
     }
 }

@@ -1,6 +1,6 @@
 package com.example.playlists.data
 
-import com.example.playlists.domain.ApiInterface
+import com.example.playlists.mainplayer.domain.ApiInterface
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse

@@ -1,8 +1,9 @@
 package com.example.playlists.data
 
 import app.cash.turbine.test
-import com.example.playlists.data.remote.RemoteDatabaseImpl
-import com.example.playlists.domain.RemoteDatabase
+import com.example.playlists.mainplayer.data.remote.RemoteDatabaseImpl
+import com.example.playlists.mainplayer.domain.RemoteDatabase
+import com.example.playlists.mainplayer.data.Song
 import com.example.playlists.util.Output
 import com.example.playlists.util.Result
 import com.google.android.gms.tasks.OnFailureListener
@@ -165,7 +166,9 @@ class RemoteDatabaseTest {
            assertEquals(Output.FAILURE, value)
 
            cancelAndIgnoreRemainingEvents()
-           verify(firebaseReference.child(anyString()).setValue(song), times(2))
+           verify(firebaseReference.child(anyString()).setValue(song), times(1)).addOnFailureListener(
+               any()
+           )
        }
     }
 

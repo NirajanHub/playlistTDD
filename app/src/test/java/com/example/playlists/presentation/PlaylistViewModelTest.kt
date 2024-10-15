@@ -3,9 +3,13 @@ package com.example.playlists.presentation
 import app.cash.turbine.test
 import com.example.playlists.MainCoroutineRule
 import com.example.playlists.data.FakeRepository
-import com.example.playlists.data.Song
+import com.example.playlists.mainplayer.data.Song
+import com.example.playlists.mainplayer.domain.Repository
+import com.example.playlists.mainplayer.presentation.PlayListViewModel
+import com.example.playlists.util.Result
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
@@ -15,6 +19,9 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mock
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 
 @ExperimentalCoroutinesApi
@@ -24,18 +31,23 @@ class PlaylistViewModelTest {
     val mainCoroutineRule = MainCoroutineRule()
 
     private lateinit var viewModel: PlayListViewModel
-    private lateinit var repository: FakeRepository
+
+    private lateinit var fakeRepository: FakeRepository
+
+    @Mock
+    private lateinit var mockRepository: Repository
 
     @Before
     fun setUp() {
-        repository = FakeRepository()
-        viewModel = PlayListViewModel(repository)
+        fakeRepository = FakeRepository()
+        mockRepository = mock()
+        viewModel = PlayListViewModel(fakeRepository)
     }
-    val song = Song(id = 1, icon = "icon", title = "title", description = "description")
+
+    private val song = Song(id = 1, icon = "icon", title = "title", description = "description")
 
     @Test
     fun `test fetchSongs function with success result`() = mainCoroutineRule.testScope.runTest {
-
         //Given
 
         //When
@@ -66,27 +78,73 @@ class PlaylistViewModelTest {
     @Test
     fun `test fetchSongs function with error result`() = mainCoroutineRule.testScope.runTest {
 
-        //Given
+        //Arrange
         val expected = "No Internet Connection"
-        repository.shouldReturnError = true
-        //When
-        viewModel.fetchSongs()
-      //  advanceTimeBy(3001)
-        advanceUntilIdle()
-        repository.shouldReturnError = false
-        //Result
+        fakeRepository.shouldReturnError = FakeRepository.ChooseResult.Failure
 
-        assertEquals(expected,viewModel.state.value.isError)
+        //Act
+        viewModel.fetchSongs()
+
+        advanceUntilIdle()
+        fakeRepository.shouldReturnError = FakeRepository.ChooseResult.Success
+
+        //Assert
+        assertEquals(expected, viewModel.state.value.isError)
 
     }
 
     @Test
-    fun `fetch firebase_data_changes success`(){
-        //When
+    fun `fetch firebase_data_changes success`() = mainCoroutineRule.testScope.runTest {
+        //Arrange
+        val expected = song
+        whenever(mockRepository.getDataFromFirebaseDatabase()).thenReturn(flow { Result.Success(song) })
 
-        val result = repository.getDataFromFirebaseDatabase()
+        //Act
+        viewModel.fetchFirebaseData()
 
-        //Result
+        advanceUntilIdle()
 
+        //Assert
+        viewModel.state.test {
+            val item = awaitItem()
+            assertEquals(song,item.isSuccess)
+        }
+    }
+
+    @Test
+    fun `fetch firebase_data_changes failure`() = mainCoroutineRule.testScope.runTest {
+        //Arrange
+        val expected = "Error"
+
+        fakeRepository.shouldReturnError = FakeRepository.ChooseResult.Failure
+        //Act
+        viewModel.fetchFirebaseData()
+
+        advanceUntilIdle()
+        fakeRepository.shouldReturnError = FakeRepository.ChooseResult.Success
+
+        //Assert
+        viewModel.state.test {
+            val item = awaitItem()
+            assertEquals(expected,item.isError)
+        }
+    }
+
+    @Test
+    fun `fetch firebase_data_changes loading`() = mainCoroutineRule.testScope.runTest {
+        //Arrange
+        val expected = true
+
+        fakeRepository.shouldReturnError = FakeRepository.ChooseResult.Loading
+        //Act
+        viewModel.fetchFirebaseData()
+
+        advanceUntilIdle()
+        fakeRepository.shouldReturnError = FakeRepository.ChooseResult.Success
+        //Assert
+        viewModel.state.test {
+            val item = awaitItem()
+            assertEquals(expected,item.isListLoading)
+        }
     }
 }

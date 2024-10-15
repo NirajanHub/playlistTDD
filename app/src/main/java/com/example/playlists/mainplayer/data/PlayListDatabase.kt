@@ -1,4 +1,4 @@
-package com.example.playlists.data
+package com.example.playlists.mainplayer.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

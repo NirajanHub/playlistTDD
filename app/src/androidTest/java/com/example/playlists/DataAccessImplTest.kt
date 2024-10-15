@@ -2,8 +2,8 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.playlists.MainCoroutineRule
-import com.example.playlists.data.remote.RemoteDatabaseImpl
-import com.example.playlists.domain.RemoteDatabase
+import com.example.playlists.mainplayer.data.remote.RemoteDatabaseImpl
+import com.example.playlists.mainplayer.domain.RemoteDatabase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

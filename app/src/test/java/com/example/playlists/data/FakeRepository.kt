@@ -1,6 +1,8 @@
 package com.example.playlists.data
 
-import com.example.playlists.domain.Repository
+import com.example.playlists.mainplayer.domain.Repository
+import com.example.playlists.mainplayer.data.Song
+import com.example.playlists.mainplayer.data.SongDTO
 import com.example.playlists.util.Output
 import com.example.playlists.util.Result
 import kotlinx.coroutines.delay
@@ -9,7 +11,22 @@ import kotlinx.coroutines.flow.flow
 
 class FakeRepository : Repository {
 
-    var shouldReturnError = false
+    enum class ChooseResult {
+        Success,
+        Loading,
+        Failure
+    }
+
+    var shouldReturnError = ChooseResult.Success
+
+
+    private val song = Song(
+        id = 1,
+        icon = "icon",
+        title = "title",
+        description = "description"
+    )
+
     override suspend fun getDataFromServer(): SongDTO {
         return SongDTO(id = 1, icon = "icon", title = "title", description = "description")
     }
@@ -27,7 +44,7 @@ class FakeRepository : Repository {
 
     override suspend fun getSong(): Result<Any> {
         delay(3000)
-        if (shouldReturnError) {
+        if (shouldReturnError == ChooseResult.Failure) {
             return Result.Error("No Internet Connection")
         }
         return Result.Success<Song>(
@@ -47,8 +64,21 @@ class FakeRepository : Repository {
     }
 
     override fun getDataFromFirebaseDatabase(): Flow<Result<Song>> {
-        TODO("Not yet implemented")
+        return flow {
+            when (shouldReturnError) {
+                ChooseResult.Success -> {
+                    emit(Result.Success(song))
+                }
+                ChooseResult.Failure -> {
+                    emit(Result.Error("Error"))
+                }
+                else -> {
+                    emit(Result.Loading)
+                }
+            }
+        }
     }
+
 
     fun getSongFailure(): Result<String?> {
         return Result.Error("No Internet Connection")

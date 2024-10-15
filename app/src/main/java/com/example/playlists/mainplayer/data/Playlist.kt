@@ -1,4 +1,4 @@
-package com.example.playlists.data
+package com.example.playlists.mainplayer.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 @Entity
 data class Song (
     @PrimaryKey(autoGenerate = true)
-    val id:Int,
+    var id:Int = 0,
     @ColumnInfo(name = "icon")
-    val icon:String,
+    var icon:String ="",
     @ColumnInfo(name = "title")
-    val title:String,
+    var title:String ="",
     @ColumnInfo(name = "description")
-    val description:String)
+    var description:String="")
 

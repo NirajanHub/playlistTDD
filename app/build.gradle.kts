@@ -35,6 +35,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug{
+
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -102,6 +105,20 @@ dependencies {
     //dagger - hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    //hilt-navigaiton
+    implementation(libs.hilt.navigation)
+
+    ///compose navigation
+    implementation(libs.navigation.compose)
+
+    //Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    //Exo-player
+    implementation(libs.exo.player)
+//    implementation(libs.exo.player.dash)
+//    implementation(libs.exo.player.ui)
 
 
     //////////////////////////////TESTING////////////////////////////////////////////

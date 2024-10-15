@@ -5,15 +5,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.playlists.data.Song
+import com.example.playlists.mainplayer.data.Song
 import com.example.playlists.presentation.FakeViewModel
-import com.example.playlists.presentation.MainActivity
-import com.example.playlists.presentation.PlayListState
-import com.example.playlists.presentation.SongList
+import com.example.playlists.mainplayer.MainActivity
+import com.example.playlists.mainplayer.presentation.PlayListState
+import com.example.playlists.mainplayer.presentation.SongList
 import com.ncodes.playlists.R
 
 import org.junit.Test

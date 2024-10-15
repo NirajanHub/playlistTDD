@@ -1,10 +1,10 @@
-package com.example.playlists.data.repository
+package com.example.playlists.mainplayer.data.repository
 
-import com.example.playlists.data.PlayListDao
-import com.example.playlists.data.Song
-import com.example.playlists.data.SongDTO
-import com.example.playlists.domain.RemoteDatabase
-import com.example.playlists.domain.Repository
+import com.example.playlists.mainplayer.data.PlayListDao
+import com.example.playlists.mainplayer.data.Song
+import com.example.playlists.mainplayer.data.SongDTO
+import com.example.playlists.mainplayer.domain.RemoteDatabase
+import com.example.playlists.mainplayer.domain.Repository
 import com.example.playlists.util.Output
 import com.example.playlists.util.Result
 import kotlinx.coroutines.flow.Flow

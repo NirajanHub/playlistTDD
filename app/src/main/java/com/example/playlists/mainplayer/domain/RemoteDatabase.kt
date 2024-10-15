@@ -1,6 +1,6 @@
-package com.example.playlists.domain
+package com.example.playlists.mainplayer.domain
 
-import com.example.playlists.data.Song
+import com.example.playlists.mainplayer.data.Song
 import com.example.playlists.util.Output
 import com.example.playlists.util.Result
 import kotlinx.coroutines.flow.Flow

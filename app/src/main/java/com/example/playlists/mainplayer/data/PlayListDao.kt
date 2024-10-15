@@ -1,4 +1,4 @@
-package com.example.playlists.data
+package com.example.playlists.mainplayer.data
 
 import androidx.room.Dao
 import androidx.room.Delete

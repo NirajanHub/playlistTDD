@@ -1,6 +1,7 @@
 package com.example.playlists.presentation
 
-import com.example.playlists.data.Song
+import com.example.playlists.mainplayer.data.Song
+import com.example.playlists.mainplayer.presentation.PlayListState
 import com.example.playlists.util.Result
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
